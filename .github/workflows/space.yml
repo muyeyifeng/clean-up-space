@@ -30,6 +30,8 @@ jobs:
           sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
           sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php* android*
           sudo rm -rf /usr/local/lib/android
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
           sudo -E apt-get update
           sudo -E apt-get upgrade -y
           #==================================
@@ -38,7 +40,4 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get -y upgrade
           sudo -E apt-get clean
-          df -h
-          sudo rm -rf "/usr/local/share/boost"
-          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
           df -h
